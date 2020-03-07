@@ -1,15 +1,15 @@
 CREATE TABLE Resturant_DataFrame (
-  id INT ,
-  license_no INT,
-  inspect_date VARCHAR
-  city TEXT,
-  state TEXT,
-  zip INT PRIMARY KEY
+  Id INT ,
+  License_no INT,
+  Inspect_date VARCHAR
+  City TEXT,
+  State TEXT,
+  Zip INT PRIMARY KEY
   
 );
 
 CREATE TABLE Census (
-  Zipcode INT,
+  Zipcode INT FOREIGN KEY,
   Population INT,
   Median Age INT,
   Household Income INT,
@@ -21,5 +21,3 @@ CREATE TABLE Census (
 );
 
 
-
-Zipcode	Population	Median Age	Household Income	Per Capita Income	Poverty Count	Poverty Rate	Unemployment Rate
