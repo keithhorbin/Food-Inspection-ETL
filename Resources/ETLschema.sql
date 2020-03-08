@@ -1,23 +1,22 @@
-CREATE TABLE Resturant_DataFrame (
-  Id INT ,
-  License_no INT,
-  Inspect_date VARCHAR
-  City TEXT,
-  State TEXT,
-  Zip INT PRIMARY KEY
-  
+-- Create tables for raw data to be loaded into
+CREATE TABLE Inspection (
+  inspection_id SERIAL Primary Key,
+  license_no INT,
+  inspect_date VARCHAR,
+  results VARCHAR,
+  city VARCHAR,
+  state VARCHAR,
+  zip VARCHAR
 );
 
 CREATE TABLE Census (
-  Zipcode INT FOREIGN KEY,
-  Population INT,
-  Median Age INT,
-  Household Income INT,
-  Per Capita Income INT,
-  Poverty Count INT, 
-  Poverty Rate INT,
-  Unemployment Rate INT,
-  
+  zip VARCHAR,
+  population REAL,
+  median_age REAL,
+  household_income REAL,
+  per_capita_income REAL,
+  poverty_count REAL, 
+  poverty_rate REAL,
+  unemployment_rate REAL
 );
-
 
