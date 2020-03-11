@@ -35,3 +35,4 @@ Next we embarked on the **load** process. Just to get a visual and ensure there 
   * We wanted to keep inspection and census data separate since they update in different manners and from different sources. If city data was refreshed or additional cities are added inserting/removing the data from the existing table will be relatively easy thorough filter use of date, city, state.  
   * Once the tables were created we checked the tables in pandas to ensure the connect existed and that the table creation was successful.
   * We ran an engine execute to delete all table contents from both tables to ensure no duplicative data and no primary key concerns.  
+  * On the SQL JOIN we did an INNER JOIN to ensure no inspections listed without matching census data
