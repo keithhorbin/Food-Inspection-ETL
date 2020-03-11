@@ -2,7 +2,7 @@
 
 Food establishments are rated regularly as a condition of being licensed and able to sell to the public. To ensure that all food establishments meet relevant heath standards and codes, the health division inspects once a year and makes follow up visits on high risk establishments. They also conduct inspections in response to complaints of unsanitary conditions or illnesses.
 
-Our interest was in looking at how food inspection ratings related to income levels by zip code. We **extracted** 2017 food inspection data sets for two cities (Boston and Chicago) in the form of CSV's, and census data estimates for 2017 from a built in pandas library with the dataframe output to a CSV file.
+Our interest was in looking at how food inspection ratings related to income levels by zip code. We **extracted** 2017 food inspection data sets for two cities (Boston and Chicago) in the form of CSV's (sourced from healthdata.gov), and census data estimates for 2017 from a built in pandas library with the dataframe output to a CSV file.
 
 Despite the city CSV's coming from similar departments they weren't identical and the **transformation** process started with normalizing the data in each for the like columns that we sought to join for the sake of the project.
 
