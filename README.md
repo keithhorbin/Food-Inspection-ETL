@@ -29,7 +29,7 @@ Next we embarked on the **load** process. Just to get a visual and ensure there 
   * Connected to the local database with our PgAdmin credentials in Pandas.
   * Subsequently we created a database titled "ETL_Food_Database", containing two tables:
     * "inspections" - a table to house the merged city data
-      * Inspections contains a primary key set as serial and in column inspection_id.
+      * Inspections contains a primary key set as serial assigned by the database and as inspection id resulting in a unique id.
     * "census" - a table to house all census data
       * A Foreign Key on zip links the two tables together.
   * We wanted to keep inspection and census data separate since they update in different manners and from different sources. If city data was refreshed or additional cities are added inserting/removing the data from the existing table will be relatively easy thorough filter use of date, city, state.  
