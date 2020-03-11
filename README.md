@@ -2,7 +2,7 @@
 
 Food establishments are rated regularly as a condition of being licensed and able to sell to the public. To ensure that all food establishments meet relevant heath standards and codes, the health division inspects once a year and makes follow up visits on high risk establishments. They also conduct inspections in response to complaints of unsanitary conditions or illnesses.
 
-Our interest was in looking at how food inspection ratings related to income levels by zip code. We **extracted** 2017 food inspection data sets for two cities (Boston and Chicago) in the form of CSV's, and census data estimates for 2017 from a built in pandas library with the dataframe output to a CSV file.
+Our interest was in looking at how food inspection ratings related to income levels by zip code. We **extracted** 2017 food inspection data sets for two cities (Boston and Chicago) in the form of CSV's (sourced from healthdata.gov), and census data estimates for 2017 from a built in pandas library with the dataframe output to a CSV file.
 
 Despite the city CSV's coming from similar departments they weren't identical and the **transformation** process started with normalizing the data in each for the like columns that we sought to join for the sake of the project.
 
@@ -29,10 +29,17 @@ Next we embarked on the **load** process. Just to get a visual and ensure there 
   * Connected to the local database with our PgAdmin credentials in Pandas.
   * Subsequently we created a database titled "ETL_Food_Database", containing two tables:
     * "inspections" - a table to house the merged city data
-      * Inspections contains a primary key set as serial and in column inspection_id.
+      * Inspections contains a primary key set as serial assigned by the database and as inspection id resulting in a unique id.
     * "census" - a table to house all census data
-      * A Foreign Key on zip links the two tables together.
+      * A zip Foreign Key in inspection links to the zip primary key in census.
   * We wanted to keep inspection and census data separate since they update in different manners and from different sources. If city data was refreshed or additional cities are added inserting/removing the data from the existing table will be relatively easy thorough filter use of date, city, state.  
   * Once the tables were created we checked the tables in pandas to ensure the connect existed and that the table creation was successful.
   * We ran an engine execute to delete all table contents from both tables to ensure no duplicative data and no primary key concerns.  
   * On the SQL JOIN we did an INNER JOIN to ensure no inspections listed without matching census data
+  
+  # Files
+  * Readme
+  * etl_sql_queries contains basic SQL queries to call all records from each table independently and a join of the two
+  * ETL_master_file jupyter notebook of all cleansing, joins, and DB communication
+  * census_search jupyter notebook using the census pandas library to retrieve census data and save to a csv
+  * Resources folder containing source CSV's for Boston, Chicago, and census data. Also contains the table schema for the DB. 
