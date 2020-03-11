@@ -31,8 +31,15 @@ Next we embarked on the **load** process. Just to get a visual and ensure there 
     * "inspections" - a table to house the merged city data
       * Inspections contains a primary key set as serial assigned by the database and as inspection id resulting in a unique id.
     * "census" - a table to house all census data
-      * A Foreign Key on zip links the two tables together.
+      * A zip Foreign Key in inspection links to the zip primary key in census.
   * We wanted to keep inspection and census data separate since they update in different manners and from different sources. If city data was refreshed or additional cities are added inserting/removing the data from the existing table will be relatively easy thorough filter use of date, city, state.  
   * Once the tables were created we checked the tables in pandas to ensure the connect existed and that the table creation was successful.
   * We ran an engine execute to delete all table contents from both tables to ensure no duplicative data and no primary key concerns.  
   * On the SQL JOIN we did an INNER JOIN to ensure no inspections listed without matching census data
+  
+  # Files
+  * Readme
+  * etl_sql_queries contains basic SQL queries to call all records from each table independently and a join of the two
+  * ETL_master_file jupyter notebook of all cleansing, joins, and DB communication
+  * census_search jupyter notebook using the census pandas library to retrieve census data and save to a csv
+  * Resources folder containing source CSV's for Boston, Chicago, and census data. Also contains the table schema for the DB. 
